@@ -2,7 +2,8 @@ package com.satish.exp.problems;
 
 public class LongestRepCharacter {
     public static void main(String[] args) {
-        String str = "gasakkmmaajgsiuarrrrhsjbaskja";
+        String str = "gasakkmmaaaaajgsiuarrrrrrrrrrrhsjbaskja";
+        printLongestRepCharacter(str);
     }
     private static void printLongestRepCharacter(String str){
         Integer current = 0;
@@ -12,6 +13,8 @@ public class LongestRepCharacter {
                 current++;
             else if(current > last){
                 last = current;
+                current=0;
+            }else {
                 current=0;
             }
         }
