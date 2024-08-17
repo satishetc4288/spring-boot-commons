@@ -29,7 +29,10 @@ public class AsynchController {
     public CompletableFuture<String> getAsynch2(){
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync( () -> "hello, ");
 
-        return completableFuture.thenApply((hel) -> hel + " world").thenCompose( (res) -> CompletableFuture.supplyAsync(() -> res + "\n Whats up dude!")).thenCombine(CompletableFuture.supplyAsync( () -> "\n big boss this is: "), (s1, s2) -> s1+ s2);
+        return completableFuture.
+                thenApplyAsync((hel) -> hel + " world").
+                thenCompose( (res) -> CompletableFuture.supplyAsync(() -> res + "\n Whats up dude!")).
+                thenCombine(CompletableFuture.supplyAsync( () -> "\n big boss this is: "), (s1, s2) -> s1+ s2);
     }
 
     @RequestMapping("/test3")
